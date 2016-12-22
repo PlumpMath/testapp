@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+  </title>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="angularforms">
+<div ng-controller="ctrlone">
+
+<form name="myForm" ng-submit="myForm.$valid && submit(user)">
+  Name: <input type="text" ng-model="user.name" ng-minlength=3 placeholder="required" required /><br />
+
+  E-mail: <input type="email" ng-model="user.email" /><br />
+
+  Phone Number: <input type="number" ng-model="user.phone" ng-minlength=10 ng-maxlength=10 placeholder="10 digits" /><br />
+
+  Age: <input type="number" ng-model="user.age" ng-min=16 ng-max=130 placeholder="16-130 (required)" required /><br />
+
+  <input  type="submit" value="Save" />
+</form>
+<br>
+<hr>
+<br>
+<form name="friendsform" ng-submit="friendsform.$valid && addfriend(friend)">
+  Name: <input type="text" ng-model="friend.namefromdb" placeholder="name in the database" required> <br>
+
+  New Friend: <input type="text" ng-model="friend.friendsname" ng-minlength=3 required> <br>
+  <input type="submit" value="Add Friend">
+</form>
+
+
+</div>
+<script src="angular/angular.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
