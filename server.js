@@ -2,7 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/databaseuser');
+mongoose.connect(process.env.MONGOLAB_CYAN_URI ||'mongodb://localhost/databaseuser');
 
 var Mymodel = require('./UserModel');
 var Friendmodel = require('./FriendModel');
@@ -37,6 +37,4 @@ app.post('/friends', function (req, res, done) {
   })
 });
 
-app.listen(8000, function () {
-  console.log('ok!');
-});
+app.listen(process.env.PORT || '4000');
